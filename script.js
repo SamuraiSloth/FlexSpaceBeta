@@ -1,9 +1,6 @@
 const d = new Date();
-let dayoftheweek = d.getDay();
-
-if ((dayoftheweek == 6) | (dayoftheweek == 7)) {
-  dayoftheweek = -10;
-}
+let dayoftheweek = d.getDay() ;
+let dayoftheweekword = d.getDay();
 
 const h = new Date();
 let hours = h.getHours();
@@ -95,16 +92,26 @@ var weekdays = [
 ];
 
 var curclass = "";
-var curdaynum = dayoftheweek - 4;
+dayoftheweekword = weekdays[dayoftheweek];
 
-if (curdaynum < 0) {
-  curdaynum += 5;
+if (dayoftheweek == 6 || dayoftheweek == 0) {
+  curdaynum = "It's a weekend!";
+} else {
+  var curdaynum = dayoftheweek - 4;
+
+  if (curdaynum < 0) {
+    curdaynum += 5;
+  }
 }
 
 function getPeriod(hrs, mins) {
   var timestamp = hrs * 100 + mins;
-  if (dayoftheweek == -10) {
-    curclass = "None! It's a weekend!";
+  if (dayoftheweek == 6 || dayoftheweek == 0) {
+    curclass = "It's a weekend!";
+    nextclass1 = "";
+    nextclass2 = "";
+    nextclass3 = "";
+    next3classes = "";
   } else if (timestamp >= 850 && timestamp < 940) {
     curclass = days[curdaynum][0];
     nextclass1 = days[curdaynum][1];
@@ -166,15 +173,22 @@ if (minutes < 10) {
 
 if (hours > 12) {
   var dateandtime1 =
-    weekdays[dayoftheweek] + ", " + (hours - 12) + ":" + minutes + "pm";
+    dayoftheweekword + ", " + (hours - 12) + ":" + minutes + "pm";
 } else {
-  var dateandtime1 =
-    weekdays[dayoftheweek] + ", " + hours + ":" + minutes + "am";
+  var dateandtime1 = dayoftheweekword + ", " + hours + ":" + minutes + "am";
 }
 
 document.getElementById("dateandtime").innerHTML = dateandtime1;
 
-document.getElementById("day").innerHTML = daysnum[curdaynum];
+if (curdaynum == "It's a weekend!") {
+  document.getElementById("day").innerHTML = "";
+  document.getElementById("currentclass").innerHTML = "";
+  document.getElementById("currentday").innerHTML = "";
+} else {
+  document.getElementById("day").innerHTML = daysnum[curdaynum];
+  document.getElementById("currentclass").innerHTML = "The class you have right now is:";
+  document.getElementById("currentday").innerHTML = "It is currently a day:";
+}
 
 document.getElementById("class").innerHTML = getPeriod(hours, minutes);
 
