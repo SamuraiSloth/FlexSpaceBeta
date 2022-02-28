@@ -1,18 +1,21 @@
 const d = new Date();
-let dayoftheweek = d.getDay() ;
+let dayoftheweek = d.getDay();
 let dayoftheweekword = d.getDay();
 
 const h = new Date();
 let hours = h.getHours();
 
 const m = new Date();
-let minutes = m.getMinutes();
+let minutes = h.getMinutes();
 
 var next3classes = "The next 3 classes are:";
 
 var nextclass1;
 var nextclass2;
 var nextclass3;
+
+var currentclasssentence = "The class you have right now is:";
+var currentday = "It is currently a day:";
 
 var day1 = [
   "Math", // 8:50 - 9:39
@@ -105,7 +108,7 @@ if (dayoftheweek == 6 || dayoftheweek == 0) {
 }
 
 function getPeriod(hrs, mins) {
-  var timestamp = hrs * 100 + mins;
+  var timestamp = hrs * 100 + parseInt(mins);
   if (dayoftheweek == 6 || dayoftheweek == 0) {
     curclass = "It's a weekend!";
     nextclass1 = "";
@@ -117,46 +120,55 @@ function getPeriod(hrs, mins) {
     nextclass1 = days[curdaynum][1];
     nextclass2 = days[curdaynum][2];
     nextclass3 = days[curdaynum][3];
+    currentclasssentence = "The class you have right now is:";
   } else if (timestamp >= 940 && timestamp < 1030) {
     curclass = days[curdaynum][1];
     nextclass1 = days[curdaynum][2];
     nextclass2 = days[curdaynum][3];
     nextclass3 = days[curdaynum][4];
+    currentclasssentence = "The class you have right now is:";
   } else if (timestamp >= 1030 && timestamp < 1050) {
     curclass = days[curdaynum][2];
     nextclass1 = days[curdaynum][3];
     nextclass2 = days[curdaynum][4];
     nextclass3 = days[curdaynum][5];
+    currentclasssentence = "The class you have right now is:";
   } else if (timestamp >= 1050 && timestamp < 1140) {
     curclass = days[curdaynum][3];
     nextclass1 = days[curdaynum][4];
     nextclass2 = days[curdaynum][5];
     nextclass3 = days[curdaynum][6];
+    currentclasssentence = "The class you have right now is:";
   } else if (timestamp >= 1140 && timestamp < 1210) {
     curclass = days[curdaynum][4];
     nextclass1 = days[curdaynum][5];
     nextclass2 = days[curdaynum][6];
     nextclass3 = days[curdaynum][7];
+    currentclasssentence = "The class you have right now is:";
   } else if (timestamp >= 1210 && timestamp < 1241) {
     curclass = days[curdaynum][5];
     nextclass1 = days[curdaynum][6];
     nextclass2 = days[curdaynum][7];
     nextclass3 = days[curdaynum][8];
+    currentclasssentence = "The class you have right now is:";
   } else if (timestamp >= 1241 && timestamp < 1331) {
     curclass = days[curdaynum][6];
     nextclass1 = days[curdaynum][7];
     nextclass2 = days[curdaynum][8];
     nextclass3 = days[curdaynum][9];
+    currentclasssentence = "The class you have right now is:";
   } else if (timestamp >= 1331 && timestamp < 1421) {
     curclass = days[curdaynum][7];
     nextclass1 = days[curdaynum][8];
     nextclass2 = days[curdaynum][9];
     nextclass3 = "There's nothing else!";
+    currentclasssentence = "The class you have right now is:";
   } else if (timestamp >= 1421 && timestamp <= 1511) {
     curclass = days[curdaynum][8];
     nextclass1 = days[curdaynum][9];
     nextclass2 = "There's nothing else!";
     nextclass3 = "";
+    currentclasssentence = "The class you have right now is:";
   } else {
     curclass = "You're not supposed to be in school right now?!";
     nextclass1 = "";
@@ -182,17 +194,23 @@ document.getElementById("dateandtime").innerHTML = dateandtime1;
 
 if (curdaynum == "It's a weekend!") {
   document.getElementById("day").innerHTML = "";
-  document.getElementById("currentclass").innerHTML = "";
   document.getElementById("currentday").innerHTML = "";
+  document.getElementById("currentclass").innerHTML = "";
 } else {
   document.getElementById("day").innerHTML = daysnum[curdaynum];
-  document.getElementById("currentclass").innerHTML = "The class you have right now is:";
-  document.getElementById("currentday").innerHTML = "It is currently a day:";
+  document.getElementById("currentday").innerHTML = currentday;
+  if (
+    getPeriod(hours, minutes) ==
+    "You're not supposed to be in school right now?!"
+  ) {
+    currentclasssentence = "";
+  }
+  document.getElementById("currentclass").innerHTML = currentclasssentence;
 }
 
 document.getElementById("class").innerHTML = getPeriod(hours, minutes);
 
-document.getElementById("next3classes").innerHTML = nextclass3;
+document.getElementById("next3classes").innerHTML = next3classes;
 
 document.getElementById("nextclass1").innerHTML = nextclass1;
 document.getElementById("nextclass2").innerHTML = nextclass2;
