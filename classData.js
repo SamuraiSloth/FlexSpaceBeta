@@ -177,16 +177,16 @@ function getPeriod(hrs, mins) {
     } else {
       nextclasswhen = 1210 - timestamp;
     }
-  } else if (timestamp >= 1210 && timestamp < 1241) {
+  } else if (timestamp >= 1210 && timestamp < 1331) {
     curclass = days[curdaynum][5];
     nextclass1 = days[curdaynum][6];
     nextclass2 = days[curdaynum][7];
     nextclass3 = days[curdaynum][8];
     currentclasssentence = "The class you have right now is:";
-    if (1241 - timestamp > 60) {
-      nextclasswhen = 1241 - timestamp - 40;
+    if (1331 - timestamp > 60) {
+      nextclasswhen = 1331 - timestamp - 40;
     } else {
-      nextclasswhen = 1241 - timestamp;
+      nextclasswhen = 1331 - timestamp;
     }
   } else if (timestamp >= 1241 && timestamp < 1331) {
     curclass = days[curdaynum][6];
