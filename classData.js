@@ -1,12 +1,19 @@
-const d = new Date();
-let dayoftheweek = d.getDay();
-let dayoftheweekword = d.getDay();
+const dcurr = new Date();
+var dayoftheweek = dcurr.getDay();
+var dayoftheweekword = dcurr.getDay();
+var hours = dcurr.getHours();
+var minutes = dcurr.getMinutes();
 
-const h = new Date();
-let hours = h.getHours();
+setInterval(myTimer, 1000);
 
-const m = new Date();
-let minutes = h.getMinutes();
+function myTimer() {
+  const dcurr = new Date();
+  document.getElementById("dateandtime").innerHTML =
+    dayoftheweekword + ", " + dcurr.toLocaleTimeString();
+  var dayoftheweek = dcurr.getDay();
+  var hours = dcurr.getHours();
+  var minutes = dcurr.getMinutes();
+}
 
 var next3classes = "The next 3 classes are:";
 
@@ -231,15 +238,6 @@ function getPeriod(hrs, mins) {
 if (minutes < 10) {
   minutes = "0" + minutes;
 }
-
-if (hours > 12) {
-  var dateandtime1 =
-    dayoftheweekword + ", " + (hours - 12) + ":" + minutes + "pm";
-} else {
-  var dateandtime1 = dayoftheweekword + ", " + hours + ":" + minutes + "am";
-}
-
-document.getElementById("dateandtime").innerHTML = dateandtime1;
 
 if (curdaynum == "It's a weekend!") {
   document.getElementById("day").innerHTML = "";
