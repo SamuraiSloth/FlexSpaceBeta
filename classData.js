@@ -67,13 +67,13 @@ var day3 = [
 
 var day4 = [
   "Math", // 8:50 - 9:39
-  "Music", // 9:40 - 10:29
+  "Math", // 9:40 - 10:29
   "Break", // 10:30 - 10:49
   "English/History/Lunch", // 10:50 - 11:39
   "Inside Recess", // 11:40 - 12:09
   "Outside Recess", // 12:10 - 12:40
   "English", // 12:40 - 1:30
-  "Gym", // 1:31 - 2:20
+  "Music", // 1:31 - 2:20
   "Health", // 2:21 - 3:11
   "School Ends",
 ];
