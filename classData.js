@@ -30,7 +30,7 @@ var day1 = [
   "Math", // 8:50 - 9:39
   "Math", // 9:40 - 10:29
   "Break", // 10:30 - 10:49
-  "English/History/Lunch", // 10:50 - 11:39
+  "English/History", // 10:50 - 11:39
   "Inside Recess", // 11:40 - 12:09
   "Outside Recess", // 12:10 - 12:40
   "English/History", // 12:40 - 1:30
@@ -43,7 +43,7 @@ var day2 = [
   "Math", // 8:50 - 9:39
   "Math/Gym", // 9:40 - 10:29
   "Break", // 10:30 - 10:49
-  "French/Lunch", // 10:50 - 11:39
+  "French", // 10:50 - 11:39
   "Inside Recess", // 11:40 - 12:09
   "Outside Recess", // 12:10 - 12:40
   "English", // 12:40 - 1:30
@@ -56,7 +56,7 @@ var day3 = [
   "Math", // 8:50 - 9:39
   "Math", // 9:40 - 10:29
   "Break", // 10:30 - 10:49
-  "French/Lunch", // 10:50 - 11:39
+  "French", // 10:50 - 11:39
   "Inside Recess", // 11:40 - 12:09
   "Outside Recess", // 12:10 - 12:40
   "English", // 12:40 - 1:30
@@ -69,7 +69,7 @@ var day4 = [
   "Math", // 8:50 - 9:39
   "Math", // 9:40 - 10:29
   "Break", // 10:30 - 10:49
-  "English/History/Lunch", // 10:50 - 11:39
+  "English/History", // 10:50 - 11:39
   "Inside Recess", // 11:40 - 12:09
   "Outside Recess", // 12:10 - 12:40
   "English", // 12:40 - 1:30
@@ -82,7 +82,7 @@ var day5 = [
   "Math", // 8:50 - 9:39
   "Math", // 9:40 - 10:29
   "Break", // 10:30 - 10:49
-  "Science/Lunch", // 10:50 - 11:39
+  "Science", // 10:50 - 11:39
   "Inside Recess", // 11:40 - 12:09
   "Outside Recess", // 12:10 - 12:40
   "English", // 12:40 - 1:30
