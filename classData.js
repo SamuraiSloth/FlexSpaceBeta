@@ -109,7 +109,7 @@ dayoftheweekword = weekdays[dayoftheweek];
 if (dayoftheweek == 6 || dayoftheweek == 0) {
   curdaynum = "It's a weekend!";
 } else {
-  var curdaynum = dayoftheweek;
+  var curdaynum = dayoftheweek - 1;
 
   if (curdaynum < 0) {
     curdaynum += 5;
