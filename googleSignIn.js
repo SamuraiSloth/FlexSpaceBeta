@@ -12,6 +12,6 @@ function signOut() {
     .getAuthInstance()
     .signOut()
     .then(function () {
-      console.log("user signed out");
+      document.getElementById("content").innerHTML = "You have signed out";
     });
 }

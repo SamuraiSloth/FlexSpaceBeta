@@ -18,6 +18,7 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -50,13 +51,16 @@
         <p id="day"></p>
         <p id="currentclass"></p>
         <p id="class"></p>
-        <p id="nextclasswhen"></p>
-        <p id="next3classes"></p>
-        <p id="nextclass1"></p>
-        <p id="nextclass2"></p>
-        <p id="nextclass3"></p>
+        <div class="next">
+          <p id="nextclasswhen"></p>
+          <p id="next3classes"></p>
+          <p id="nextclass1"></p>
+          <p id="nextclass2"></p>
+          <p id="nextclass3"></p>
+        </div>
       </div>
     </div>
+    <script src="lists.js"></script>
     <script src="classData.js"></script>
   </body>
 </html>
