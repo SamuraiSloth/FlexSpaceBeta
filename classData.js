@@ -122,4 +122,4 @@ function myTimer() {
   document.getElementById("nextclass3").innerHTML = nextclass3;
 }
 
-setInterval(myTimer, 500);
+setInterval(myTimer, 1000);
