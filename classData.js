@@ -3,6 +3,14 @@ var dayoftheweekword = dcurr.getDay();
 var dayoftheweek = dcurr.getDay();
 var hours = dcurr.getHours();
 var minutes = dcurr.getMinutes();
+var seconds = dcurr.getSeconds();
+
+var dmins = getMinInDay();
+
+function getMinInDay() {
+  minutes1 = hours * 60 + minutes;
+  return minutes1;
+}
 
 function myTimer() {
   var dcurr = new Date();
@@ -10,6 +18,7 @@ function myTimer() {
   var dayoftheweekword = weekdays[dayoftheweek];
   var hours = dcurr.getHours();
   var minutes = dcurr.getMinutes();
+  var dmins = getMinInDay();
   document.getElementById("dateandtime").innerHTML =
     dayoftheweekword + ", " + dcurr.toLocaleTimeString();
 }
@@ -40,11 +49,12 @@ if (dayoftheweek == 6 || dayoftheweek == 0) {
   }
 }
 
-function classFind(num, max) {
+function classFind(num, max, start, end) {
   curclass = days[curdaynum][num];
   nextclass1 = days[curdaynum][num + 1];
   nextclass2 = days[curdaynum][num + 2];
   nextclass3 = days[curdaynum][num + 3];
+  nextclasswhen = end - dmins;
   if (num + 2 > max) {
     nextclass2 = "There's nothing else!";
     nextclass3 = "";
@@ -66,24 +76,24 @@ function getPeriod() {
   if (dayoftheweek == 6 || dayoftheweek == 0) {
     curclass = "It's a weekend!";
     setAllEmpty();
-  } else if (dcurr >= 31800000 && dcurr < 34800000) {
-    classFind(0, 9);
-  } else if (dcurr >= 34800000 && dcurr < 37800000) {
-    classFind(1, 9);
-  } else if (dcurr >= 37800000 && dcurr < 39000000) {
-    classFind(2, 9);
-  } else if (dcurr >= 39000000 && dcurr < 42000000) {
-    classFind(3, 9);
-  } else if (dcurr >= 42000000 && dcurr < 43800000) {
-    classFind(4, 9);
-  } else if (dcurr >= 43800000 && dcurr < 45660000) {
-    classFind(5, 9);
-  } else if (dcurr >= 45660000 && dcurr < 48660000) {
-    classFind(6, 9);
-  } else if (dcurr >= 48660000 && dcurr < 51660000) {
-    classFind(7, 9);
-  } else if (dcurr >= 51660000 && dcurr <= 54660000) {
-    classFind(8, 9);
+  } else if (dmins >= 530 && dmins < 580) {
+    classFind(0, 9, 530, 580);
+  } else if (dmins >= 580 && dmins < 630) {
+    classFind(1, 9, 580, 630);
+  } else if (dmins >= 630 && dmins < 650) {
+    classFind(2, 9, 630, 650);
+  } else if (dmins >= 650 && dmins < 700) {
+    classFind(3, 9, 650, 700);
+  } else if (dmins >= 700 && dmins < 730) {
+    classFind(4, 9, 700, 730);
+  } else if (dmins >= 730 && dmins < 761) {
+    classFind(5, 9, 730, 761);
+  } else if (dmins >= 761 && dmins < 811) {
+    classFind(6, 9, 761, 811);
+  } else if (dmins >= 811 && dmins < 861) {
+    classFind(7, 9, 811, 861);
+  } else if (dmins >= 861 && dmins <= 911) {
+    classFind(8, 9, 861, 911);
   } else {
     curclass = "You're not supposed to be in school right now?!";
     setAllEmpty();
