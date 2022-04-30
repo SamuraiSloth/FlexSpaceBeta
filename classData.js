@@ -1,4 +1,5 @@
 var dcurr = new Date();
+
 var dayoftheweekword = dcurr.getDay();
 var dayoftheweek = dcurr.getDay();
 var hours = dcurr.getHours();
