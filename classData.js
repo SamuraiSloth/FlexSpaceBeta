@@ -6,6 +6,8 @@ var hours = dcurr.getHours();
 var minutes = dcurr.getMinutes();
 var seconds = dcurr.getSeconds();
 
+var curdaynum;
+
 function myTimer() {
   dcurr = new Date();
   dayoftheweek = dcurr.getDay();
@@ -37,9 +39,9 @@ function myTimer() {
   dayoftheweekword = weekdays[dayoftheweek];
 
   if (dayoftheweek == 6 || dayoftheweek == 0) {
-    curdaynum = "It's a weekend!";
+    curdaynum = "It's the weekend!";
   } else {
-    var curdaynum = dayoftheweek - 1;
+    curdaynum = dayoftheweek - 1;
 
     if (curdaynum < 0) {
       curdaynum += 5;
@@ -71,7 +73,7 @@ function myTimer() {
 
   function getPeriod() {
     if (dayoftheweek == 6 || dayoftheweek == 0) {
-      curclass = "It's a weekend!";
+      curclass = "It's the weekend!";
       setAllEmpty();
     } else if (dmins >= 530 && dmins < 580) {
       classFind(0, 9, 530, 580);
@@ -98,7 +100,7 @@ function myTimer() {
     return curclass;
   }
 
-  if (curdaynum == "It's a weekend!") {
+  if (curdaynum == "It's the weekend!") {
     document.getElementById("day").innerHTML = "";
     document.getElementById("currentday").innerHTML = "";
     document.getElementById("currentclass").innerHTML = "";
@@ -122,5 +124,30 @@ function myTimer() {
   document.getElementById("nextclass2").innerHTML = nextclass2;
   document.getElementById("nextclass3").innerHTML = nextclass3;
 }
-
 setInterval(myTimer, 1000);
+
+$(document).on("click", "#showAllClasses", function () {
+  if (curdaynum == "It's the weekend!") {
+    if (document.getElementById("showAllClassesText").innerHTML != "") {
+      document.getElementById("showAllClassesText").innerHTML = "";
+    } else {
+      document.getElementById("showAllClassesText").innerHTML =
+        "Still the weekend...";
+    }
+  } else {
+    if (document.getElementById("showAllClassesText").innerHTML != "") {
+      document.getElementById("showAllClassesText").innerHTML = "";
+    } else {
+      let text;
+      for (var i = 0; i < 9; i++) {
+        if (i == 0) {
+          text = "Period " + (i + 1) + ": " + days[curdaynum][i];
+        } else {
+          text =
+            text + "<br/> " + "Period " + (i + 1) + ": " + days[curdaynum][i];
+        }
+      }
+      document.getElementById("showAllClassesText").innerHTML = text;
+    }
+  }
+});
