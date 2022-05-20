@@ -24,11 +24,12 @@ function myTimer() {
   }
 
   var dmins = getMinInDay();
-  var next3classes = "The next 3 classes are:";
+  var next4classes = "The next 4 classes are:";
 
   var nextclass1;
   var nextclass2;
   var nextclass3;
+  var nextclass4;
 
   var currentclasssentence = "The class you have right now is:";
   var currentday = "It is currently a day:";
@@ -53,6 +54,7 @@ function myTimer() {
     nextclass1 = days[curdaynum][num + 1];
     nextclass2 = days[curdaynum][num + 2];
     nextclass3 = days[curdaynum][num + 3];
+    nextclass4 = days[curdaynum][num + 4];
     nextclasswhen = end - dmins;
     if (num + 2 > max) {
       nextclass2 = "There's nothing else!";
@@ -60,14 +62,18 @@ function myTimer() {
     } else if (num + 3 > max) {
       nextclass2 = days[curdaynum][num + 2];
       nextclass3 = "There's nothing else!";
-    }
+    } else if (num + 4 > max) {
+      nextclass2 = days[curdaynum][num + 2];
+      nextclass3 = days[curdaynum][num + 3];
+      nextclass4 = "There's nothing else!";
   }
 
   function setAllEmpty() {
     nextclass1 = "";
     nextclass2 = "";
     nextclass3 = "";
-    next3classes = "";
+    nextclass4 = "";
+    next4classes = "";
     nextclasswhen = "";
   }
 
